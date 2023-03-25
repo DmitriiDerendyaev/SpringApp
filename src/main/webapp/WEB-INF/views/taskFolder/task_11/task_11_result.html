@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Calculator Result</title>
+    <style>
+        div {
+            background-color: #E6F5FFFF;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
-
+<div>
+    <h1>Calculator Result</h1>
+    <p>Original String: <span th:text="${originalString}"></span></p>
+    <p>Result: <span th:text="${result}"></span></p>
+    <br>
+    <p style="font-size: 16px;"><a href="/task" style="color:#0000FF; text-decoration:none;">Return to the main page</a>.</p>
+</div>
 </body>
 </html>

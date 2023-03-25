@@ -5,8 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import ru.derendyaev.SpringApp.models.Calc;
 import ru.derendyaev.SpringApp.models.Greeting;
 
+import javax.management.modelmbean.ModelMBeanOperationInfo;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -80,6 +82,23 @@ public class TaskController {
     @GetMapping(value = "/11")
     public String task_11(){
         return "taskFolder/task_11/task_11";
+    }
+
+    @PostMapping(value = "/11/calculate")
+    public String calculate(@RequestParam("calc") String stringCalc, @RequestParam("specialCalc") String specialCalc,  Model model) throws IOException {
+        if(stringCalc != null){
+            Calc calc = new Calc(stringCalc);
+            model.addAttribute("originalString", stringCalc);
+            model.addAttribute("result", calc.calculate());
+        } else {
+            Calc calc = new Calc(specialCalc);
+
+        }
+
+
+
+
+        return "taskFolder/task_11/task_11_result";
     }
 
     @GetMapping(value = "/12")
