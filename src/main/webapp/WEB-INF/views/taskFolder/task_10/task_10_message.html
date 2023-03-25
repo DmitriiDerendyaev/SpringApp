@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Error Page</title>
+  <style>
+    body {
+      background-color: #F9F9F9;
+    }
+    .container {
+      margin-top: 50px;
+      text-align: center;
+    }
+    .error {
+      background-color: #f7ffe7;
+      border: 1px solid #99ff40;
+      border-radius: 5px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="error">
+    <h2>Message!</h2>
+    <p th:text="${message}"></p>
+  </div>
+  <p style="font-size: 16px;"><a href="/task/10" style="color:#0000FF; text-decoration:none;">Return to the task_10</a>.</p>
+  <p style="font-size: 16px;"><a href="/task" style="color:#0000FF; text-decoration:none;">Return to the main page</a>.</p>
+</div>
+</body>
+</html>

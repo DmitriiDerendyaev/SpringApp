@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Task 9</title>
+</head>
+<body>
+
+
+<div style="text-align:center; background-color:#f1f1f1; padding:20px;">
+    <div><p>Enter your name by URL(?yourName=Ivan):</p></div>
+    <p th:text="${'Hello world, ' + yourName + '!'}" style="font-size: 24px; font-weight: bold;">VALUE</p>
+
+    <form action="POST" th:action="@{/task/9/post}" th:object="${greeting}" method="post">
+        <label for="name">Name: </label>
+        <input type="text" th:field="*{name}" id="name" />
+
+        <br>
+        <label for="greeting">Greeting: </label>
+        <input type="text" th:field="*{greetingText}" id="greeting"/>
+
+        <br>
+
+        <label for="color">Page color: </label>
+        <input type="text" th:field="*{color}" id="color"/>
+
+        <br>
+        <input type="submit" />
+    </form>
+</div>
+
+</body>
+</html>
