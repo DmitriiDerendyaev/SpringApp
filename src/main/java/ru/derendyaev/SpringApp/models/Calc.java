@@ -72,4 +72,32 @@ public class Calc {
 
         return Double.toString(result);
     }
+
+    public String specialCalculate(String inputString){
+        String[] component = inputString.split(" ");
+        firstNumber = Double.parseDouble(component[0]);
+        String operation = component[1];
+
+        switch (operation){
+            case "sin": {
+                return Double.toString(Math.sin(Math.toRadians(firstNumber)));
+            }
+            case "cos": {
+                return Double.toString(Math.cos(Math.toRadians(firstNumber)));
+            }
+            case "tan": {
+                return Double.toString(Math.tan(Math.toRadians(firstNumber)));
+            }
+            case "%": {
+                return Double.toString(firstNumber * 0.1);
+            }
+            case "sqrt": {
+                return Double.toString(Math.sqrt(firstNumber));
+            }
+            case "cot": {
+                return Double.toString(1.0 / Math.tan(Math.toRadians(firstNumber)));
+            }
+            default: return "ERROR!";
+        }
+    }
 }

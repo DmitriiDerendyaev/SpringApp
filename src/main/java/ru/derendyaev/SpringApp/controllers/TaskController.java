@@ -85,19 +85,18 @@ public class TaskController {
     }
 
     @PostMapping(value = "/11/calculate")
-    public String calculate(@RequestParam("calc") String stringCalc, @RequestParam("specialCalc") String specialCalc,  Model model) throws IOException {
+    public String calculate(@RequestParam(value = "calc", required = false) String stringCalc,
+                            @RequestParam(value = "specialCalc", required = false) String specialCalc,
+                            Model model) throws IOException {
         if(stringCalc != null){
             Calc calc = new Calc(stringCalc);
             model.addAttribute("originalString", stringCalc);
             model.addAttribute("result", calc.calculate());
         } else {
             Calc calc = new Calc(specialCalc);
-
+            model.addAttribute("originalString", specialCalc);
+            model.addAttribute("result", calc.specialCalculate(specialCalc));
         }
-
-
-
-
         return "taskFolder/task_11/task_11_result";
     }
 
